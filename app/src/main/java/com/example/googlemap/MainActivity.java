@@ -86,9 +86,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         myMap = googleMap;
 //        LatLng hanoi = new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
         LatLng hnoi = new LatLng(21.0285, 105.8542);
+        myMap.addMarker(new MarkerOptions().position(hnoi).title("Hanoi"));
         myMap.moveCamera(CameraUpdateFactory.newLatLng(hnoi));
 
-
+        myMap.getUiSettings().setZoomControlsEnabled(true);
+        myMap.getUiSettings().setCompassEnabled(true);
     }
 
     @Override
