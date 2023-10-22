@@ -11,19 +11,20 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="-14dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-16dp" />
 
     <SearchView
         android:id="@+id/mapSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
         android:background="@drawable/bg_search_view"
         android:elevation="5dp"
         android:iconifiedByDefault="false"
         android:queryHint="Search...."
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="15dp" />
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        tools:layout_editor_absoluteX="0dp" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -37,7 +38,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
