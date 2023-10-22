@@ -3,7 +3,11 @@ package com.example.googlemap;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 //import androidx.appcompat.widget.SearchView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.SearchView;
+//import android.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 
 import androidx.core.app.ActivityCompat;
 
@@ -36,11 +40,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
 
         mapSearchView = findViewById(R.id.mapSearch);
-
-
 
         mapSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -72,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         });
         mapFragment.getMapAsync(MainActivity.this);
+
     }
 
 
@@ -79,8 +85,41 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(@NonNull GoogleMap googleMap) {
         myMap = googleMap;
 //        LatLng hanoi = new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
-        LatLng hnoi = new LatLng(-34, 151);
+        LatLng hnoi = new LatLng(21.0285, 105.8542);
         myMap.moveCamera(CameraUpdateFactory.newLatLng(hnoi));
+
+
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+
+        int none = GoogleMap.MAP_TYPE_NONE;
+        int normal = GoogleMap.MAP_TYPE_NORMAL;
+        int satellite = GoogleMap.MAP_TYPE_SATELLITE;
+        int terrain = GoogleMap.MAP_TYPE_TERRAIN;
+        int hybrid = GoogleMap.MAP_TYPE_HYBRID;
+
+        if(id == R.id.mapNone){
+
+            myMap.setMapType(none);
+        } else if (id == R.id.mapNormal) {
+            myMap.setMapType(normal);
+        } else if (id == R.id.mapSatellite) {
+            myMap.setMapType(satellite);
+        } else if (id == R.id.mapTerrain) {
+            myMap.setMapType(terrain);
+        } else if (id == R.id.mapHybrid) {
+            myMap.setMapType(hybrid);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
