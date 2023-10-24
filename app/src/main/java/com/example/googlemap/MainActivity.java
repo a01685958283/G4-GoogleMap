@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                     Address address = addressList.get(0);
                     LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-                    myMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
+                    myMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
                     myMap.addMarker(new MarkerOptions().position(latLng).title(s));
                 }
 
@@ -88,7 +88,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 //        LatLng hanoi = new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
         LatLng hnoi = new LatLng(21.0285, 105.8542);
         myMap.addMarker(new MarkerOptions().position(hnoi).title("Hanoi"));
-        myMap.moveCamera(CameraUpdateFactory.newLatLng(hnoi));
+        myMap.animateCamera(CameraUpdateFactory.newLatLngZoom(hnoi, 5));
+//        myMap.moveCamera(CameraUpdateFactory.newLatLng(hnoi));
 
         myMap.getUiSettings().setZoomControlsEnabled(true);
         myMap.getUiSettings().setCompassEnabled(true);
