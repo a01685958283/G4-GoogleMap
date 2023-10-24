@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     Address address = addressList.get(0);
                     LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
                     myMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
+                    myMap.addMarker(new MarkerOptions().position(latLng).title(s));
                 }
 
                 return false;
