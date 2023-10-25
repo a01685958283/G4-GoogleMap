@@ -17,6 +17,12 @@
         android:theme="@style/Theme.GoogleMap"
         tools:targetApi="31">
         <activity
+            android:name=".Direction"
+            android:exported="false" />
+        <activity
+            android:name=".track_direction"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

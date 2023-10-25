@@ -3,8 +3,11 @@ package com.example.googlemap;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 //import androidx.appcompat.widget.SearchView;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.SearchView;
 //import android.widget.Toolbar;
 import androidx.appcompat.widget.Toolbar;
@@ -79,7 +82,22 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         });
         mapFragment.getMapAsync(MainActivity.this);
 
+        //change view
+        Button btn = findViewById(R.id.btn_next);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, track_direction.class);
+
+                startActivity(intent);
+
+                finish();
+            }
+        });
+
     }
+
 
 
     @Override
